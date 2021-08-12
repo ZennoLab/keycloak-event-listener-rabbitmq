@@ -148,7 +148,7 @@ public class RabbitMqConfig {
 
 	public boolean isAllowedEvent(Event event) {
 		// TODO: customize it
-		return event.getType().toUpperCase() == "REGISTER";
+		return event.getType().toString().toUpperCase() == "REGISTER";
 	}
 
 	public boolean isAllowedEvent(AdminEvent event) {
