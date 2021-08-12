@@ -31,7 +31,7 @@ For example here is the notification of the user updated by administrator
 
 The routing key is calculated as follows:
 * admin events: `KK.EVENT.ADMIN.<REALM>.<RESULT>.<RESOURCE_TYPE>.<OPERATION>`
-* client events: `KK.EVENT.CLIENT.<REALM>.<RESULT>.<CLIENT>.<EVENT_TYPE>`
+* client events: `KK.EVENT.CLIENT.<REALM>.<RESULT>.<CLIENT>.<EVENT_TYPE>` (for speed consideration current version sends only REGISTER events, behavior can be changed at `RabbitMqConfig.java` `isAllowedEvent(..)`)
 
 And because the recommended exchange is a **TOPIC (amq.topic)**,  
 therefore its easy for Rabbit client to subscribe to selective combinations eg:
@@ -41,8 +41,8 @@ therefore its easy for Rabbit client to subscribe to selective combinations eg:
 * all user events from my-relam and my-client: `KK.EVENT.*.MY-REALM.*.MY-CLIENT.USER`
 
 ## USAGE:
-1. [Download the latest jar](https://github.com/aznamier/keycloak-event-listener-rabbitmq/blob/target/keycloak-to-rabbit-1.0.1.jar?raw=true) or build from source: ``mvn clean install``
-2. copy jar into your Keycloak `/opt/jboss/keycloak/standalone/deployments/keycloak-to-rabbit-1.0.1.jar`
+1. [Download the latest jar](https://github.com/Zennolab/keycloak-event-listener-rabbitmq/blob/target/keycloak-to-rabbit-2.0.0.jar?raw=true) or build from source: ``mvn clean install``
+2. copy jar into your Keycloak `/opt/jboss/keycloak/standalone/deployments/keycloak-to-rabbit-2.0.0.jar`
 3. Configure as described below (option 1 or 2 or 3)
 4. Restart the Keycloak server
 5. Enable logging in Keycloak UI by adding **keycloak-to-rabbitmq**  
