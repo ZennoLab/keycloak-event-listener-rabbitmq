@@ -146,12 +146,12 @@ public class RabbitMqConfig {
 		this.exchange = exchange;
 	}
 
-	public bool isAllowedEvent(Event event) {
+	public Bool isAllowedEvent(Event event) {
 		// TODO: customize it
 		return event.getType().toUpperCase().endsWith("REGISTER");
 	}
 
-	public bool isAllowedEvent(AdminEvent event) {
+	public Bool isAllowedEvent(AdminEvent event) {
 		// TODO: customize it
 		return true;
 	}
