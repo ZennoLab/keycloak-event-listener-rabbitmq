@@ -38,6 +38,10 @@ public class RabbitMqEventListenerProvider implements EventListenerProvider {
 
 	@Override
 	public void onEvent(Event event) {
+		if (!this.cfg.isAllowedEvent(event)) {
+			return;
+		}
+
 		EventClientNotificationMqMsg msg = EventClientNotificationMqMsg.create(event);
 		String routingKey = RabbitMqConfig.calculateRoutingKey(event);
 		String messageString = RabbitMqConfig.writeAsJson(msg, true);
@@ -48,6 +52,10 @@ public class RabbitMqEventListenerProvider implements EventListenerProvider {
 
 	@Override
 	public void onEvent(AdminEvent event, boolean includeRepresentation) {
+		if (!this.cfg.isAllowedEvent(event)) {
+			return;
+		}
+
 		EventAdminNotificationMqMsg msg = EventAdminNotificationMqMsg.create(event);
 		String routingKey = RabbitMqConfig.calculateRoutingKey(event);
 		String messageString = RabbitMqConfig.writeAsJson(msg, true);
