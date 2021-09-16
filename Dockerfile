@@ -1,4 +1,4 @@
-FROM altsgamerlab/keycloak-login-recaptcha:15.0.0
+FROM altsgamerlab/keycloak-login-recaptcha:15.0.1
 
 USER root
 
