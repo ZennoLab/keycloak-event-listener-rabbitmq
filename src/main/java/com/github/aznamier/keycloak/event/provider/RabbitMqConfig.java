@@ -151,7 +151,9 @@ public class RabbitMqConfig {
 		String eventType = event.getType().toString().toUpperCase();
 		return eventType == "REGISTER"
 			|| eventType == "UPDATE_PASSWORD"
-			|| eventType == "UPDATE_TOTP";
+			|| eventType == "UPDATE_TOTP"
+			|| eventType == "VERIFY_EMAIL"
+			|| eventType == "CUSTOM_REQUIRED_ACTION";
 	}
 
 	public boolean isAllowedEvent(AdminEvent event) {
